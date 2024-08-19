@@ -12,6 +12,7 @@ import {
 } from '@shopify/hydrogen';
 
 import {AppSession} from '~/lib/session';
+import {CART_QUERY_FRAGMENT} from '~/lib/fragments';
 
 /**
  * Export a fetch handler in module format.
@@ -81,6 +82,7 @@ export default async function (request) {
       customerAccount,
       getCartId: cartGetIdDefault(request.headers),
       setCartId: cartSetIdDefault(),
+      cartQueryFragment: CART_QUERY_FRAGMENT,
     });
 
     const handleRequest = createRequestHandler(remixBuild, 'production');
